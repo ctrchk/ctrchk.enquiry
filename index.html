@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<meta charset = "UTC-8">
+<header>
+    <div style="display:flex; align-items:center; gap:1rem;">
+        <h1 style="margin:0; font-size:1.5rem;">城市溫書單車 CTRC</h1>
+        <a href="https://ctrchk.com/" style="text-decoration:none;">
+            <button type="button" style="padding:0.5rem 0.75rem; font-size:1rem; cursor:pointer;">返回主頁 BACK TO HOME PAGE</button>
+        </a>
+    </div> 
+</header>
+<body style="font-family:Arial, sans-serif; margin:2rem;">
+    <h2>查詢 ENQUIRY</h2>
+    <div id="form" style="margin-top:1rem; font-size:1.25rem; color:#333;"></div>
+
+        <form action="form-handler.php" method="POST">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+        <input type="submit" value="Send Enquiry">
+    </form>
+</body>
+<footer style="margin-top:2rem; font-size:0.875rem; color:#666;">
+    <p> [CREATIVE COPY] 2024 城市溫書單車 CTRC. All rights reserved.</p>
+</footer>
+</html>
