@@ -1,22 +1,28 @@
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $to_email = "enquiry@ctrchk.com"; 
-        $subject = "[查詢] New Enquiry from Website [enquiry]";
+<?php
+// Simple form that POSTs to process.php
+?>
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Test PHP Form</title></head>
+<body>
+  <form method="post" action="process.php">
+    <label for="name">Name:</label>
+    <input id="name" name="name" />
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
 
-        $name = htmlspecialchars($_POST['name']);
-        $email = htmlspecialchars($_POST['email']);
-        $message = htmlspecialchars($_POST['message']);
-
-        $email_body = "Name: $name\n" .
-                      "Email: $email\n" .
-                      "Message: $message\n";
-
-        $headers = "From: $email"; // Sender's email address
-
-        if (mail($to_email, $subject, $email_body, $headers)) {
-            echo "Enquiry sent successfully!";
-        } else {
-            echo "Failed to send enquiry.";
-        }
-    }
-    ?>
+// filepath: ./process.php
+<?php
+// process POST and show result
+$name = isset($_POST['name']) ? htmlspecialchars($_POST['name'], ENT_QUOTES, 'UTF-8') : '(none)';
+header('Content-Type: text/html; charset=utf-8');
+echo "<!doctype html><html><body><h1>Received</h1><p>Name: {$name}</p></body></html>";
+?>
+<VirtualHost *:80>
+    DocumentRoot /var/www/html
+    <Directory /var/www/html>
+        Require all granted
+        AllowOverride All
+    </Directory>
